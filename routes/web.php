@@ -26,8 +26,8 @@ Route::get('/jobs', function () {
 });
 
 Route::get('/jobs/{id}', function ( $id) {
-  
-    $job=Arr::first( job::all(), fn($job) => $job['id'] == $id); //Search the job that has the matching id
+  $job = Job::find($id);
+   // $job=Arr::first( job::all(), fn($job) => $job['id'] == $id); //Search the job that has the matching id
 
     return view('job',['job'=> $job]);// when the job is found it is loaded to the view
 });
