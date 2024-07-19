@@ -1,37 +1,11 @@
 <?php
 namespace App\Models;
 
-use Illuminate\Support\Arr;
-class Job {
-    public static function all(): array {
-        return [
-            ['id' => 1,
-            'title'=> 'Software Engineer',
-            'Salary'=> '$300,000'
-        ], [
-            'id' => 2,
-            'title'=> 'Doctor',
-            'Salary'=> '$1,000,000'
-        ], [
-            'id' => 3,
-            'title'=> 'Lawyer',
-            'Salary'=> '$500,000'
-        ],[
-            'id' => 4,
-            'title'=> 'Pilot',
-            'Salary'=> '$10,000,000'
-        ]
-      ];
-    }
+use Illuminate\Database\Eloquent\Model;
 
-    public static function find(int $id): array {
-        $job = Arr::first(static::all(), fn($job) => $job['id'] == $id); // This function finds a job with a given ID
+class Job extends Model {// or U can can change the Eloquent name to match the table name E.g. JobListing cause my table is job_listings
+    protected $table = 'job_listings';
 
-        if(! $job){
-            abort(404);
-        }
-
-        return $job;
-    }
+    protected $fillable = ['title', 'Salary'];
 }
 
