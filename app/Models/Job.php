@@ -10,5 +10,10 @@ class Job extends Model {// or U can can change the Eloquent name to match the t
     protected $table = 'job_listings';
 
     protected $fillable = ['title', 'Salary'];
+
+    public function employer(){
+
+        return $this->belongsTo(Employer::class);
+    }
 }
 
