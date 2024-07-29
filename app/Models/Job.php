@@ -3,6 +3,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 
 class Job extends Model {// or U can can change the Eloquent name to match the table name E.g. JobListing cause my table is job_listings
@@ -11,9 +13,16 @@ class Job extends Model {// or U can can change the Eloquent name to match the t
 
     protected $fillable = ['title', 'Salary'];
 
-    public function employer(){
+    public function employer(): BelongsTo
+    {
 
         return $this->belongsTo(Employer::class);
+    }
+
+    public function tags(): BelongsToMany
+    {
+
+        return $this->belongsToMany(Tag::class, foreignPivotKey:"job_listing_id");
     }
 }
 
