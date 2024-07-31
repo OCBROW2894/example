@@ -20,16 +20,30 @@ Route::get('/contacts', function () {
 });
 
 Route::get('/jobs', function () {
-   $jobs = Job::with('employer')->paginate(30);
+   $jobs = Job::with('employer')->latest()->paginate(30);
     //$jobs = Job::with('employer')->simplePaginate(30);
-    return view('jobs',[
+    return view('jobs.index',[
         'jobs' => $jobs
     ]);
 });
 
+Route::get('/jobs/create', function () {
+    return view('jobs.create');
+});
+
+Route::post('/jobs', function () {
+    //Validation...
+
+    Job::create([
+        'title' => request('title'),
+        'Salary' => request('Salary'),
+        'employer_id' => 1
+    ]);
+    return redirect('/jobs');
+});
 Route::get('/jobs/{id}', function ( $id) {
   $job = Job::find($id);
    // $job=Arr::first( job::all(), fn($job) => $job['id'] == $id); //Search the job that has the matching id
 
-    return view('job',['job'=> $job]);// when the job is found it is loaded to the view
+    return view('jobs.show',['job'=> $job]);// when the job is found it is loaded to the view
 });

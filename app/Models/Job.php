@@ -11,7 +11,13 @@ class Job extends Model {// or U can can change the Eloquent name to match the t
     use HasFactory;
     protected $table = 'job_listings';
 
-    protected $fillable = ['title', 'Salary'];
+    protected $fillable = ['employer_id', 'title', 'Salary'];
+    /*
+     * The line below disables all the guarded fields when left blank
+     * Else can be used to guard the specified fields
+     */
+    // protected $guarded = [];
+
 
     public function employer(): BelongsTo
     {
