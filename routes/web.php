@@ -32,7 +32,13 @@ Route::get('/jobs/create', function () {
 });
 
 Route::post('/jobs', function () {
-    //Validation...
+    request()->validate([
+        /*
+         *  To Get More About Validation Visit :- Laravel.com/docs/Validation
+         */
+        'title' => ['required', 'min:3'],
+        'Salary' => ['required']
+    ]);
 
     Job::create([
         'title' => request('title'),

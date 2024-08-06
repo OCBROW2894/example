@@ -15,7 +15,7 @@
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <img class="h-8 w-8" src="E:obo/Bryian/B2894(28th DEC2023)/B2894/PStaff/LOGOS/ocbrowlogo.jpg" alt="Your Company">
+            <img class="h-8 w-8" src="C:/Users/User/Herd/example/public/assets/images/ocbrowlogo.jpg" alt="Your Company">
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
@@ -57,7 +57,7 @@
                   From: "transform opacity-100 scale-100"
                   To: "transform opacity-0 scale-95"
               -->
-            
+
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="md:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-       
+
          <x-nav-link href="/" :active="request()-> is('/')">Home</x-nav-link>
          <x-nav-link href="/jobs" :active="request()-> is('jobs')">Jobs</x-nav-link>
          <x-nav-link href="/about" :active="request()-> is('about')">About</x-nav-link>
@@ -90,14 +90,16 @@
             </svg>
           </button>
         </div>
-      
+
       </div>
     </div>
   </nav>
 
   <header class="bg-white shadow">
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm justify-between">
       <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading}}</h1>
+
+        <x-button href="/jobs/create">Create Job</x-button>
     </div>
   </header>
   <main>
