@@ -11,35 +11,22 @@
                 <p class="mt-1 text-sm leading-6 text-gray-600">Just fill the Fields with  Relative Details.😊</p>
 
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <div class="sm:col-span-4">
-                        <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
+                    <x-form-field>
+                        <x-form-label for="title" >Title</x-form-label>
                         <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                               <!-- <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">cbrow.com</span> -->
-                                <!-- U can Add required at the End of The line Below -->
-                                <input type="text" name="title" id="title"  class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Software Engineer">
-                            </div>
-                            <!--To Throw error under the filed -->
-                            @error('title')
-                                <p class="text-xs text-red-500 font-semibold italic mt-2">{{ $message }}</p>
-                            @enderror
+                            <x-form-input name="title" id="title" placeholder="Software Engineer"/>
+
+                            <x-form-error name="title" />
                         </div>
+                    </x-form-field>
                     </div>
-                    <div class="sm:col-span-4">
-                        <label for="Salary" class="block text-sm font-medium leading-6 text-gray-900">Salary</label>
+                    <x-form-field>
+                        <x-form-label for="Salary" >Salary</x-form-label>
                         <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-
-                               <!-- <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">cbrow.com</span> -->
-                                <!-- U can Add required at the End of The line Below -->
-                                <input type="text" name="Salary" id="Salary"  class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="$700,000">
-                            </div>
-
-                            @error('Salary')
-                            <p class="text-xs text-red-500 font-semibold italic mt-1">{{ $message }}</p>
-                            @enderror
+                            <x-form-input name="Salary" id="Salary" placeholder="$1,000,000" />
+                            <x-form-error name="Salary" />
                         </div>
-                    </div>
+                    </x-form-field>
                 </div>
 
                 <!-- Throwing all the errors to the view
@@ -57,7 +44,7 @@
 
         <div class="mt-6 flex items-center justify-end gap-x-6">
             <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
-            <button type="submit" class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:focus:border-blue-700 dark:active:bg-gray-700 dark:active:text-gray-300">Save</button>
+           <x-form-submit-button>Save</x-form-submit-button>
         </div>
          </div>
     </div>
