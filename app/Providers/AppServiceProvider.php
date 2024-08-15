@@ -29,9 +29,12 @@ class AppServiceProvider extends ServiceProvider
 
         /*- when You want to style with Bootstrap 5- */
       //  Paginator::useBootstrapFive();
-        //Need To Be Responsible For The Job To even see the edit Button
+
+        /*
+        //Need To Be Responsible For The user to edit the Job
         Gate::define('edit-job', function (User $user, Job $job){
             return $job->employer->user->is($user);
         });
+        */
     }
 }
