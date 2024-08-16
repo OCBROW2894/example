@@ -18,7 +18,7 @@ Route::resource('jobs', JobController::class)->only(['index', 'show']);
 Route::resource('jobs', JobController::class)->except(['index', 'show'])->middleware('auth');
 */
 Route::get('/jobs', [JobController::class, 'index']);
-Route::get('/jobs/create', [JobController::class, 'create']);
+Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth');
 Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
 Route::get('/jobs/{job}', [JobController::class, 'show']);
 
